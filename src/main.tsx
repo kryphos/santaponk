@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'tailwindcss/tailwind.css';
-import './styles/main.scss';
 import { Route } from "wouter";
 import Index from './routes/Index.tsx';
 import SmeadPage from './routes/SmeadPage.tsx';
