@@ -4,13 +4,16 @@ import { Suspense, useRef, useState } from 'react';
 import { useSpring } from '@react-spring/three';
 import { BackSide, Vector3 } from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { useLocation } from 'wouter';
+import { ARE_BOXES_OPEN } from '../main';
 
-// Floaty gift box component
-const Box = ({ position }: { position: Vector3 }) => {
+// floaty gift box component
+const Box = ({ position, receiver }: { position: Vector3, receiver: string }) => {
     const textPosition = position.clone().add(new Vector3(0, 1.5, 0));
 
     const boxRef = useRef();
     const [isHovered, setIsHovered] = useState(false);
+    const [, navigate] = useLocation();
 
     // smothly animate scale based on isHovered
     const { scale } = useSpring({
@@ -20,7 +23,7 @@ const Box = ({ position }: { position: Vector3 }) => {
 
     const gltf = useLoader(GLTFLoader, '/santaponk/box.glb');
 
-    // Animation loop
+    // animation loop
     useFrame(() => {
         if (boxRef.current) {
             // @ts-expect-error no idea why this fails tbh
@@ -30,28 +33,40 @@ const Box = ({ position }: { position: Vector3 }) => {
         }
     });
 
+    const onClickBox = () => {
+        if (ARE_BOXES_OPEN) {
+            navigate(`/santaponk/${receiver}`, { replace: false });
+        }
+    };
+
     return (
         <>
             {/* name label */}
             <Html position={textPosition}>
-                <p className='text-xl text-yellow-500 flex' style={{ textShadow: '1px 1px 3px gold' }}>
-                    To:
-                    <p className='text-xl text-yellow-500 flex blur-sm' style={{ textShadow: '0px 0px 1px gold' }}>
-                        ??????
-                    </p>
-                </p>
-            </Html>
+                <div className='text-xl text-yellow-500 flex' style={{ textShadow: '1px 1px 4px gold' }}>
+                    {"To: "}
+                    {ARE_BOXES_OPEN ?
+                        <p className='text-xl text-yellow-500 flex' style={{ textShadow: '1px 1px 4px gold' }}>
+                            {receiver}
+                        </p>
+                        :
+                        <p className='text-xl text-yellow-500 flex blur-sm' style={{ textShadow: '0px 0px 1px gold' }}>
+                            ????
+                        </p>
+                    }
+                </div>
+            </Html >
 
             {/* the model itself, suspense is there cuz doc says so */}
-            <Suspense fallback={null}>
-                <primitive
-                    object={gltf.scene.clone()}
+            <Suspense fallback={null} >
+                <primitive object={gltf.scene.clone()}
                     ref={boxRef}
                     position={position}
                     onPointerOver={() => setIsHovered(true)}
                     onPointerOut={() => setIsHovered(false)}
+                    onClick={onClickBox}
                 />
-            </Suspense>
+            </Suspense >
 
             {/* ✨✨✨ sparkles ✨✨✨ */}
             <Sparkles
@@ -112,10 +127,10 @@ export default function Index() {
                 />
 
                 {/* boxes */}
-                <Box position={new Vector3(2, 0, -3)} />
-                <Box position={new Vector3(-1, 1, 5)} />
-                <Box position={new Vector3(0, -2, 4)} />
-                <Box position={new Vector3(-3, 0, -1)} />
+                <Box position={new Vector3(2, 0, -3)} receiver='doag' />
+                <Box position={new Vector3(-1, 1, 5)} receiver='nemu' />
+                <Box position={new Vector3(0, -2, 4)} receiver='sana' />
+                <Box position={new Vector3(-3, 0, -1)} receiver='smead' />
             </Canvas>
         </div >
     );
