@@ -1,5 +1,5 @@
 import { animate, motion } from "framer-motion";
-import { useEffect, useReducer, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import TypeWriter from "./Typewriter";
 
 type DialogInstruction = {
@@ -14,16 +14,11 @@ export function Dialog({ instructions }: { instructions: DialogInstruction[] }) 
     const containerRef = useRef<HTMLDivElement>(null);
 
     const [index, setIndex] = useState(0);
-    const incrementIndex = () => {
-        setIndex(index + 1);
-    };
 
     const [elements, setElements] = useState<JSX.Element[]>([]);
     const addElement = (elem: JSX.Element) => {
         setElements([...elements, elem]);
     };
-
-    console.log(index);
 
     const onNewPage = () => {
         // fade current text out,
@@ -40,7 +35,7 @@ export function Dialog({ instructions }: { instructions: DialogInstruction[] }) 
                     // 0 caused flicker, so 0.1 it is
                     animate(containerRef.current!, { opacity: 1 }, { duration: 0.1, });
 
-                    incrementIndex();
+                    setIndex(index + 1);
                 }
             }
         );
@@ -52,6 +47,15 @@ export function Dialog({ instructions }: { instructions: DialogInstruction[] }) 
         if (instruction === undefined) {
             return;
         }
+
+        // callback for when the instruction is executed
+        const onComplete = () => {
+            if (instruction.action === "newpage") {
+                onNewPage();
+            } else {
+                setIndex(index + 1);
+            }
+        };
 
         // set defaults
         instruction.letterDelay ||= 100;
@@ -66,22 +70,16 @@ export function Dialog({ instructions }: { instructions: DialogInstruction[] }) 
                         <TypeWriter
                             text={instruction.text!}
                             letterDelay={instruction.letterDelay}
-                            onComplete={() => {
-                                if (instruction.action === "newpage") {
-                                    onNewPage();
-                                } else {
-                                    incrementIndex();
-                                }
-                            }}
+                            onComplete={onComplete}
                         />
                     }
                     {instruction.action === "newline" && <br />}
                 </span>
             );
 
-            // if no text, increment index immediately, since onComplete won't be called
+            // if no text, directly call onComplete
             if (!hasText) {
-                incrementIndex();
+                onComplete();
             }
         }, instruction.timeout ?? 0);
 
