@@ -13,12 +13,17 @@ type DialogInstruction = {
 export function Dialog({ instructions }: { instructions: DialogInstruction[] }) {
     const containerRef = useRef<HTMLDivElement>(null);
 
-    const [index, incrementIndex] = useReducer((prev: number) => prev + 1, 0);
+    const [index, setIndex] = useState(0);
+    const incrementIndex = () => {
+        setIndex(index + 1);
+    };
 
     const [elements, setElements] = useState<JSX.Element[]>([]);
     const addElement = (elem: JSX.Element) => {
         setElements([...elements, elem]);
     };
+
+    console.log(index);
 
     const onNewPage = () => {
         // fade current text out,
