@@ -1,4 +1,4 @@
-export type Receiver = 'doag' | 'nemu' | 'sana' | 'smead';
+export type Receiver = 'doag' | 'nemu' | 'sana' | 'smead' | 'aki';
 
 export type ReceiverDetails = {
     name: string;
@@ -13,4 +13,5 @@ export const DATA: Data = {
     'nemu': { name: 'Nemu' },
     'sana': { name: 'Sana' },
     'smead': { name: 'Smead' },
+    'aki': { name: 'Aki' },
 };
