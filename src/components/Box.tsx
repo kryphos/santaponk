@@ -6,9 +6,10 @@ import { Vector3 } from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { useLocation } from 'wouter';
 import { ARE_BOXES_OPEN } from '../main';
+import { Receiver } from '../data';
 
 // Floaty gift box component
-export default function Box({ position, receiver }: { position: Vector3, receiver: string }) {
+export default function Box({ position, receiver }: { position: Vector3, receiver: Receiver }) {
     const textPosition = position.clone().add(new Vector3(0, 1.5, 0));
 
     const boxRef = useRef();
