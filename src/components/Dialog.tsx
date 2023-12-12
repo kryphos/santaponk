@@ -2,15 +2,20 @@ import { animate, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import TypeWriter from "./Typewriter";
 
-type DialogInstruction = {
+export type DialogInstruction = {
     text?: string,
     timeout?: number,
     letterDelay?: number,
     action?: "newline" | "newpage"
 };
 
+export type DialogProps = {
+    instructions: DialogInstruction[]
+    onComplete?: () => void
+};
+
 // Dialog component, wraps many TypeWriter components along with newlines and page breaks.
-export function Dialog({ instructions }: { instructions: DialogInstruction[] }) {
+export function Dialog({ instructions, onComplete: onDialogComplete }: DialogProps) {
     const containerRef = useRef<HTMLDivElement>(null);
 
     const [index, setIndex] = useState(0);
@@ -45,6 +50,9 @@ export function Dialog({ instructions }: { instructions: DialogInstruction[] }) 
         // get next instruction and check if non-null
         const instruction = instructions[index];
         if (instruction === undefined) {
+            // were done, call onComplete if defined 
+            // dumb syntax, obj.prop and obj() but obj?.prop and obj?.() ??? why
+            onDialogComplete?.();
             return;
         }
 

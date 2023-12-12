@@ -40,7 +40,7 @@ export default function GiftPage() {
                 '
                 style={{ textShadow: '1px 1px 3px white', display: dialogEnded ? 'none' : 'flex' }}
             >
-                <Dialog instructions={[
+                <Dialog onComplete={endDialog} instructions={[
                     { text: "...", timeout: 2000, letterDelay: 400 },
                     { timeout: 3000, action: "newpage" },
 
@@ -69,11 +69,21 @@ export default function GiftPage() {
                     { timeout: 3000, action: "newpage" },
 
                     { text: "a note reads:", timeout: 2000, action: "newline" },
-                    { timeout: 3000, action: "newline" },
-                    { text: "<personalized message here>" },
-                    { timeout: 3000, action: "newpage" },
+                    { timeout: 5000, action: "newline" },
+                    { text: data.message, action: "newline" },
+                    { timeout: 5000, action: "newline" },
+                    { text: "take a look..." },
+                    { timeout: 1000, action: "newpage" },
                 ]} />
             </div >
+
+            {/* link page */}
+            <motion.div
+                className='fixed top-0 left-0 z-10 w-[100vw] h-[100vh]'
+                style={{ display: dialogEnded ? 'flex' : 'none' }}
+                whileInView={{ opacity: 1 }}
+            >
+            </motion.div >
         </>
     );
 }
