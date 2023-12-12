@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'tailwindcss/tailwind.css';
+import './main.scss';
 import { Route, Switch } from "wouter";
 import Index from './routes/Index.tsx';
 import GiftPage from './routes/GiftPage.tsx';
