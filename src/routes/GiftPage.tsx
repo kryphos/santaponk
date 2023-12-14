@@ -36,7 +36,7 @@ export default function GiftPage() {
             <div
                 className='
                     fixed top-0 left-[25vw] z-10 w-[50vw] h-[100vh] flex flex-col items-center justify-center
-                    text-4xl font-bold text-white text-center
+                    text-3xl font-bold text-white text-center
                 '
                 style={{ textShadow: '1px 1px 3px white', display: dialogEnded ? 'none' : 'flex' }}
             >
@@ -70,10 +70,10 @@ export default function GiftPage() {
 
                     { text: "a note reads:", timeout: 2000, action: "newline" },
                     { timeout: 5000, action: "newline" },
-                    { text: data.message, action: "newline" },
-                    { timeout: 5000, action: "newline" },
-                    { text: "take a look..." },
-                    { timeout: 1000, action: "newpage" },
+                    { text: data.message, action: "newline", letterDelay: 105 },
+                    { timeout: 8000, action: "newline" },
+                    { text: "take a look at the skeleton you now have to shape..." },
+                    { timeout: 3000, action: "newpage" },
                 ]} />
             </div >
 
