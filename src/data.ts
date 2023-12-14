@@ -40,7 +40,7 @@ export const DATA: Data = {
             small gift for all the fun I've had and all the awesome people I've met. Your link
             situation is quite messy, so I thought it's time for changies. But this isn't just any
             link tree page, in fact, its... emtpy and boring. But that's where you come in! Tell me
-            what you want and I will make it happen. Stackable letter blocks? Sure. Angry birgds but 
+            what you want and I will make it happen. Stackable letter blocks? Sure. Angry birds but 
             you throw pacis at little sanas? Why not! The links are sheep that run around? 3D?
             Particles? EXPLOSIONS?!? Music? Sounds? It's upon you to decide.
         `),
