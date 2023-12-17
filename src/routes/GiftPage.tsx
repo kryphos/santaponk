@@ -35,8 +35,8 @@ export default function GiftPage() {
             {/* dialog */}
             <div
                 className='
-                    fixed top-0 left-[25vw] z-10 w-[50vw] h-[100vh] flex flex-col items-center justify-center
-                    text-3xl font-bold text-white text-center
+                    fixed top-0 left-[20vw] z-10 w-[60vw] h-[100vh] flex flex-col items-center justify-center
+                    text-2xl font-bold text-white text-center
                 '
                 style={{ textShadow: '1px 1px 3px white', display: dialogEnded ? 'none' : 'flex' }}
             >
