@@ -17,7 +17,12 @@ export const DATA: Data = {
     'doag': {
         name: 'Doag',
         message: collapse_whitespace(`
-            <Doag>
+            Hi Doag! You're such a cuet and smort and talented and funny and cool guy. I had lots of 
+            fun hanging out with you and your community, both on stream and on discord. I have a little
+            gift for you where you can show off your blender skills and put all your links and other stuff,
+            a smoll webpage. While it is empty and boring right now, the background is basically
+            made with a 3D game engine, so I can make it whatever you want. Be it music, sounds,
+            particles or blender models. Just let me know!
         `),
     },
     'nemu': {
