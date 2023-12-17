@@ -34,7 +34,7 @@ export const DATA: Data = {
             for you. To boost your social media presence, I thought you would like a small personalized 
             link tree page. But it's not just any link tree page, in fact, its... empty and boring.
             I couldn't just presume to design this for you. So you can prompt me to add whatever you want.
-            Sounds? Music? Particles? The background a 3D flappy brird clone where the brid is a tiny sana?
+            Sounds? Music? Particles? The background a 3D flappy bird clone where the brid is a tiny sana?
             Your turn. I'll make it happen. One more thing. I peeked at the requirements for the 
             internship you're applying to while you were streaming it and saw that they want a "link to portfolio". 
             If you don't have one, I surely could make one for you. Just let me know if u want ^^
