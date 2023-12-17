@@ -28,7 +28,11 @@ export const DATA: Data = {
     'nemu': {
         name: 'Nemu',
         message: collapse_whitespace(`
-            <Nemu>
+            Hey Nemu! You're a great great asset and I've had lots of fun playing games with you!
+            That's why I have a little present for you. A cute link tree page you can put all your
+            links on and stand out with something special. While it is empty and boring right now,
+            I can and will make it ANYTHING you want. Music. Sounds. Particles. 3D. Whatever comes
+            to your mind, just let me know!
         `),
     },
     'sana': {
