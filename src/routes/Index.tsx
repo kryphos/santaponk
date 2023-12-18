@@ -25,6 +25,7 @@ export default function Index() {
                     <Box position={new Vector3(-1, 1, 5)} receiver='nemu' />
                     <Box position={new Vector3(0, -2, 4)} receiver='sana' />
                     <Box position={new Vector3(-3, 0, -1)} receiver='smead' />
+                    <Box position={new Vector3(2, -3, 0)} receiver='mangrove' />
                 </Space >
             </>)}
         </div >
