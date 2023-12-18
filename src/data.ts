@@ -1,4 +1,4 @@
-export type Receiver = 'doag' | 'nemu' | 'sana' | 'smead';
+export type Receiver = 'doag' | 'mangrove' | 'nemu' | 'sana' | 'smead';
 
 export type ReceiverDetails = {
     name: string;
@@ -23,6 +23,16 @@ export const DATA: Data = {
             a smoll webpage. While it is empty and boring right now, the background is basically
             made with a 3D game engine, so I can make it whatever you want. Be it music, sounds,
             particles or blender models. Just let me know!
+        `),
+    },
+    'mangrove': {
+        name: 'Mangrove',
+        message: collapse_whitespace(`
+            Hellau Mangrove! As you know, I put you up here against your will :3 But it's a very fitting
+            situation, so I can give an awesome person something in return. You know your gift already
+            ofc, but let me ellaborate once again: A cutle little homepage designed fully by you and 
+            made (with a lot of passion) by me. For story reasons, there will be an empty and boring
+            version of it in a few seconds, enjoy!
         `),
     },
     'nemu': {
