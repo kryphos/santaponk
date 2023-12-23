@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import Typewriter from "../components/Typewriter";
 import { useReducer } from "react";
 import LinkPage from "../components/LinkPage";
+import GithubBadge from "../components/GithubBadge";
 
 export default function GiftPage() {
     const [, params] = useRoute("/santaponk/:receiver");
@@ -132,6 +133,7 @@ export default function GiftPage() {
                 whileInView={{ opacity: 1, transition: { duration: 1.5 } }}
             >
                 <LinkPage for={data} />
+                <GithubBadge />
             </motion.div>
         </>
     );

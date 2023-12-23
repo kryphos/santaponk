@@ -2,20 +2,22 @@ import { Vector3 } from "three";
 import Space from "../components/Space";
 import Box from "../components/Box";
 import { useMediaQuery } from "react-responsive";
+import GithubBadge from "../components/GithubBadge";
 
 export default function Index() {
     const screenTooSmoll = !useMediaQuery({ minWidth: 1000, minHeight: 750 });
 
     return (
         <div className="h-[100vh] w-[100vw]">
+            <GithubBadge />
             {screenTooSmoll ? (
                 <>
                     <Space />
                     <div
                         className="
-                        fixed left-[10vw] top-0 z-10 flex h-[100vh] w-[80vw] flex-col items-center justify-center
-                        text-center text-2xl font-bold text-white
-                    "
+                            fixed left-[10vw] top-0 z-10 flex h-[100vh] w-[80vw] flex-col items-center
+                            justify-center text-center text-2xl font-bold text-white
+                        "
                         style={{ textShadow: "1px 1px 3px white" }}
                     >
                         <h1>Your screen is too smoll.</h1>
