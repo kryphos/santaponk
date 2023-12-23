@@ -21,11 +21,11 @@ export default function Index() {
                 </div>
             </>) : (<>
                 <Space>
-                    <Box position={new Vector3(2, 0, -3)} receiver='doag' />
-                    <Box position={new Vector3(-1, 1, 5)} receiver='nemu' />
-                    <Box position={new Vector3(0, -2, 4)} receiver='sana' />
-                    <Box position={new Vector3(-3, 0, -1)} receiver='smead' />
-                    <Box position={new Vector3(2, -3, 0)} receiver='mangrove' />
+                    <Box position={new Vector3(2, 1, -3)} receiver='doag' />
+                    <Box position={new Vector3(-1, 2, 5)} receiver='nemu' />
+                    <Box position={new Vector3(0, -1, 4)} receiver='sana' />
+                    <Box position={new Vector3(-3, 1, -1)} receiver='smead' />
+                    <Box position={new Vector3(2, -2, 0)} receiver='mangrove' />
                 </Space >
             </>)}
         </div >
