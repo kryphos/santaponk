@@ -5,7 +5,7 @@ import { BackSide } from "three";
 /// Floaty space background
 export default function Space({ children }: { children?: React.ReactNode }) {
     return (
-        <Canvas className='w-full h-full' camera={{ position: [8, 2, 2] }} >
+        <Canvas className="h-full w-full" camera={{ position: [8, 2, 2] }}>
             {/* this moves the camera around for the space floaty floaty effect */}
             <CameraShake
                 maxYaw={0.1}
@@ -35,7 +35,13 @@ export default function Space({ children }: { children?: React.ReactNode }) {
             </mesh>
 
             {/* stars, the sparkling comes from the skybox turbidity */}
-            <Stars radius={50} depth={300} count={3000} factor={2} saturation={2} />
+            <Stars
+                radius={50}
+                depth={300}
+                count={3000}
+                factor={2}
+                saturation={2}
+            />
 
             {/* lightsource */}
             <pointLight

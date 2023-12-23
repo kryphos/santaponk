@@ -1,4 +1,4 @@
-export type Receiver = 'doag' | 'mangrove' | 'nemu' | 'sana' | 'smead';
+export type Receiver = "doag" | "mangrove" | "nemu" | "sana" | "smead";
 
 export type ReceiverDetails = {
     name: string;
@@ -14,8 +14,8 @@ export type Data = {
 };
 
 export const DATA: Data = {
-    'doag': {
-        name: 'Doag',
+    doag: {
+        name: "Doag",
         message: collapse_whitespace(`
             Hi Doag! You're such a cuet and smort and talented and funny and cool guy. I had lots of 
             fun hanging out with you and your community, both on stream and on discord. I have a little
@@ -25,8 +25,8 @@ export const DATA: Data = {
             particles or blender models. Just let me know!
         `),
     },
-    'mangrove': {
-        name: 'Mangrove',
+    mangrove: {
+        name: "Mangrove",
         message: collapse_whitespace(`
             Hellau Mangrove! As you know, I put you up here against your will :3 But it's a very fitting
             situation, so I can give an awesome person something in return. You know your gift already
@@ -35,8 +35,8 @@ export const DATA: Data = {
             version of it in a few seconds, enjoy!
         `),
     },
-    'nemu': {
-        name: 'Nemu',
+    nemu: {
+        name: "Nemu",
         message: collapse_whitespace(`
             Hey Nemu! You're a great great asset and I've had lots of fun playing games with you!
             That's why I have a little present for you. A cute link tree page you can put all your
@@ -45,8 +45,8 @@ export const DATA: Data = {
             to your mind, just let me know!
         `),
     },
-    'sana': {
-        name: 'Sana',
+    sana: {
+        name: "Sana",
         message: collapse_whitespace(`
             Hellau Sana! It's been a year since I first was mesmerized by your art. You're undebatably
             one of the coolest people I've found on the internet and that's why I have a little something
@@ -59,8 +59,8 @@ export const DATA: Data = {
             If you don't have one, I surely could make one for you. Just let me know if u want ^^
         `),
     },
-    'smead': {
-        name: 'Smead',
+    smead: {
+        name: "Smead",
         message: collapse_whitespace(`
             Hai smeady. Nearly three months ago, I found your little sanctuary and needless to say,
             it was one of the best things that happened in a while. I want to thank you with this
@@ -76,5 +76,5 @@ export const DATA: Data = {
 
 // Does as the title indicates. "a     sd    fgh" -> "a sd fgh"
 function collapse_whitespace(s: string): string {
-    return s.replace(/\s+/g, ' ');
+    return s.replace(/\s+/g, " ");
 }

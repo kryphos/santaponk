@@ -3,19 +3,22 @@ import { useEffect, useRef, useState } from "react";
 import TypeWriter from "./Typewriter";
 
 export type DialogInstruction = {
-    text?: string,
-    timeout?: number,
-    letterDelay?: number,
-    action?: "newline" | "newpage"
+    text?: string;
+    timeout?: number;
+    letterDelay?: number;
+    action?: "newline" | "newpage";
 };
 
 export type DialogProps = {
-    instructions: DialogInstruction[]
-    onComplete?: () => void
+    instructions: DialogInstruction[];
+    onComplete?: () => void;
 };
 
 // Dialog component, wraps many TypeWriter components along with newlines and page breaks.
-export function Dialog({ instructions, onComplete: onDialogComplete }: DialogProps) {
+export function Dialog({
+    instructions,
+    onComplete: onDialogComplete,
+}: DialogProps) {
     const containerRef = useRef<HTMLDivElement>(null);
 
     const [index, setIndex] = useState(0);
@@ -29,7 +32,8 @@ export function Dialog({ instructions, onComplete: onDialogComplete }: DialogPro
         // fade current text out,
         // on complete clear the elements,
         // fade back in and increment index to resume dialog
-        animate(containerRef.current!,
+        animate(
+            containerRef.current!,
             { opacity: 0 },
             {
                 duration: 0.75,
@@ -38,10 +42,14 @@ export function Dialog({ instructions, onComplete: onDialogComplete }: DialogPro
                     setElements([]);
 
                     // 0 caused flicker, so 0.1 it is
-                    animate(containerRef.current!, { opacity: 1 }, { duration: 0.1, });
+                    animate(
+                        containerRef.current!,
+                        { opacity: 1 },
+                        { duration: 0.1 }
+                    );
 
                     setIndex(index + 1);
-                }
+                },
             }
         );
     };
@@ -50,7 +58,7 @@ export function Dialog({ instructions, onComplete: onDialogComplete }: DialogPro
         // get next instruction and check if non-null
         const instruction = instructions[index];
         if (instruction === undefined) {
-            // were done, call onComplete if defined 
+            // were done, call onComplete if defined
             // dumb syntax, obj.prop and obj() but obj?.prop and obj?.() ??? why
             onDialogComplete?.();
             return;
@@ -70,17 +78,18 @@ export function Dialog({ instructions, onComplete: onDialogComplete }: DialogPro
 
         // wait timeout ms
         setTimeout(() => {
-            const hasText = instruction.text !== undefined && instruction.text !== "";
+            const hasText =
+                instruction.text !== undefined && instruction.text !== "";
 
             addElement(
                 <span key={index}>
-                    {hasText &&
+                    {hasText && (
                         <TypeWriter
                             text={instruction.text!}
                             letterDelay={instruction.letterDelay}
                             onComplete={onComplete}
                         />
-                    }
+                    )}
                     {instruction.action === "newline" && <br />}
                 </span>
             );
@@ -94,10 +103,5 @@ export function Dialog({ instructions, onComplete: onDialogComplete }: DialogPro
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [index, instructions]);
 
-    return (
-        <motion.div ref={containerRef}>
-            {elements}
-        </motion.div>
-    );
+    return <motion.div ref={containerRef}>{elements}</motion.div>;
 }
-
