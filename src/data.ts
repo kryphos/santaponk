@@ -3,10 +3,6 @@ export type Receiver = "doag" | "mangrove" | "nemu" | "sana" | "smead";
 export type ReceiverDetails = {
     name: string;
     message: string;
-    twitch?: string;
-    youtube?: string;
-    twitter?: string;
-    discord?: string;
 };
 
 export type Data = {

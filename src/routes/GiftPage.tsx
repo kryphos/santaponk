@@ -6,6 +6,7 @@ import { Dialog } from "../components/Dialog";
 import { motion } from "framer-motion";
 import Typewriter from "../components/Typewriter";
 import { useReducer } from "react";
+import LinkPage from "../components/LinkPage";
 
 export default function GiftPage() {
     const [, params] = useRoute("/santaponk/:receiver");
@@ -37,8 +38,8 @@ export default function GiftPage() {
             {/* dialog */}
             <div
                 className="
-                    fixed left-[20vw] top-0 z-10 flex h-[100vh] w-[60vw] flex-col items-center justify-center
-                    text-center text-2xl font-bold text-white
+                    fixed left-[20vw] top-0 z-10 flex h-[100vh] w-[60vw] flex-col items-center
+                    justify-center text-center text-2xl font-bold text-white
                 "
                 style={{
                     textShadow: "1px 1px 3px white",
@@ -116,7 +117,7 @@ export default function GiftPage() {
                         },
                         { timeout: 8000, action: "newline" },
                         {
-                            text: "take a look at the skeleton you now have to shape...",
+                            text: "take a look at the boring thing you now have to make your own...",
                         },
                         { timeout: 3000, action: "newpage" },
                     ]}
@@ -125,10 +126,13 @@ export default function GiftPage() {
 
             {/* link page */}
             <motion.div
-                className="fixed left-0 top-0 z-10 h-[100vh] w-[100vw]"
+                className="fixed left-0 top-0 z-10 h-[100vh] w-[100vw] items-center justify-center"
                 style={{ display: dialogEnded ? "flex" : "none" }}
-                whileInView={{ opacity: 1 }}
-            ></motion.div>
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1, transition: { duration: 1.5 } }}
+            >
+                <LinkPage for={data} />
+            </motion.div>
         </>
     );
 }
